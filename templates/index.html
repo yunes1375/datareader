@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        font-size: medium;
+        padding: 5px;
+      }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tsmse data</title>
+</head>
+<body>
+  <form action="http://localhost/" method="POST">
+    <button type="submit" style="margin-left: 20px;">Go To Data page </button>
+    </form>
+    <p></p>
+    <p></p>
+  <Table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+    {%for (x,y) in c :%}
+    <tr>
+        <td>{%print(x[1])%} </td>
+        <td>{%print(y[1])%} </td>
+        <form action="http://localhost/{{x[1]}}" method="POST">
+        <td><button type="submit"  style="margin-left: 20px;" >delete</button></td></form>
+{%endfor%}
+<form action="http://localhost/insert" method="POST">
+  <p></p>
+  <p></p>
+  <input type="number" name="description"><button type="submit" style="margin-left: 20px;">Add ID</button>
+</form>
+
+<div id="cesiumContainer"></div>
+
+</body>
+</html>
